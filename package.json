@@ -6,6 +6,8 @@
   "scripts": {
     "flow": "flow",
     "start": "webpack-dev-server --open",
+    "production": "node server.js",
+    "heroku-postbuild": "npm run build",
     "clean": "rimraf dist",
     "lint": "eslint src test",
     "test": "cross-env NODE_ENV=test jest --config .jestrc --watchAll",
@@ -58,6 +60,7 @@
   },
   "dependencies": {
     "axios": "^0.16.1",
+    "express": "^4.15.2",
     "history": "^4.6.1",
     "prop-types": "^15.5.8",
     "react": "^15.0.0",
