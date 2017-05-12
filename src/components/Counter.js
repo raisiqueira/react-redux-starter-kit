@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import cssModules from 'react-css-modules';
-import styles from '../style/counter.scss';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import cssModules from 'react-css-modules'
+import styles from '../style/counter.scss'
 
 @cssModules(styles)
 export default class Counter extends Component {
@@ -11,10 +11,10 @@ export default class Counter extends Component {
     decrement: PropTypes.func.isRequired,
     incrementAsync: PropTypes.func.isRequired,
     styles: PropTypes.object
-  };
+  }
 
   render() {
-    const { counter, increment, decrement, incrementAsync, styles } = this.props;
+    const { counter, increment, decrement, incrementAsync, styles } = this.props
 
     return (
       <p>
@@ -23,6 +23,6 @@ export default class Counter extends Component {
         <button className={styles.button} onClick={() => decrement()}>-</button>
         <button className={styles.button} onClick={() => incrementAsync()}>Increment async</button>
       </p>
-    );
+    )
   }
 }
