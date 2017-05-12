@@ -17,12 +17,14 @@ export default handleActions({
   [fetchListError]: (state, action) => {
     return state
       .set('isFetching', false)
+      .set('hasSuccess', false)
       .set('hasFailed', fromJS(action.payload))
   },
   [fetchListSuccess]: (state, action) =>{
     return state
       .set('isFetching', false)
       .set('hasSuccess', true)
+      .set('hasFailed', false)
       .set('items', fromJS(action.payload.data))
   }
 }, initialState)
