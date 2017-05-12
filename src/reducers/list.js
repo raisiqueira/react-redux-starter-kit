@@ -15,11 +15,13 @@ export default handleActions({
       .set('isFetching', true)
   },
   [fetchListError]: (state, action) => {
-    return state.set('isFetching', false)
+    return state
+      .set('isFetching', false)
       .set('hasFailed', fromJS(action.payload))
   },
   [fetchListSuccess]: (state, action) =>{
-    return state.set('isFetching', false)
+    return state
+      .set('isFetching', false)
       .set('hasSuccess', true)
       .set('items', fromJS(action.payload.data))
   }
