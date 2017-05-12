@@ -19,7 +19,6 @@ This project is based on  [generator-redux-stack](https://github.com/zakangelle/
 * [jest](https://facebook.github.io/jest/) - Test suite
 * [flow](https://flow.org/) - type checker
 * [react helmet](https://github.com/nfl/react-helmet) - manage all of your changes to the document head.
-* [immutable](https://facebook.github.io/immutable-js) - immutable js
 * [axios](https://github.com/mzabriskie/axios) - http client
 
 

@@ -1,30 +1,36 @@
 import { handleActions } from 'redux-actions'
 import {fetchList, fetchListError, fetchListSuccess} from '../actions/list'
-import {List, Map, fromJS} from 'immutable'
 
-const initialState = Map({
+const initialState = {
   isFetching: false,
   hasFailed: false,
   hasSuccess: false,
   items: [],
-})
+}
 
 export default handleActions({
   [fetchList]: (state, action) => {
-    return state
-      .set('isFetching', true)
+    return Object.assign({}, state, {
+     isFetching: true,
+     hasFailed: false,
+     hasSuccess: false,
+     items: []
+   })
   },
   [fetchListError]: (state, action) => {
-    return state
-      .set('isFetching', false)
-      .set('hasSuccess', false)
-      .set('hasFailed', fromJS(action.payload))
+    return Object.assign({}, state, {
+     isFetching: false,
+     hasFailed: action.payload,
+     hasSuccess: false,
+     items: []
+    })
   },
   [fetchListSuccess]: (state, action) =>{
-    return state
-      .set('isFetching', false)
-      .set('hasSuccess', true)
-      .set('hasFailed', false)
-      .set('items', fromJS(action.payload.data))
+    return Object.assign({}, state, {
+     isFetching: false,
+     hasFailed: false,
+     hasSuccess: true,
+     items: action.payload.data
+    })
   }
 }, initialState)

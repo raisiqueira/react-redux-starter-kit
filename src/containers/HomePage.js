@@ -8,8 +8,7 @@ const mapStateToProps = (state) => {
   const {list} = state
 
   return {
-    isFetching: list.get('isFetching'),
-    items: list.get('items'),
+    ...list
   }
 }
 
@@ -19,7 +18,7 @@ export default class HomePage extends Component {
 
   componentDidMount() {
     const {getListData} = this.props
-    
+
     getListData()
   }
 
@@ -28,7 +27,7 @@ export default class HomePage extends Component {
     if(!items) {
       return null
     }
-    return items.map((item, index) => <li key={index}>{item.get('title')}</li>)
+    return items.map((item, index) => <li key={index}>{item.title}</li>)
   }
 
   render() {
