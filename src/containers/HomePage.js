@@ -6,11 +6,10 @@ import {Helmet} from "react-helmet"
 
 const mapStateToProps = (state) => {
   const {list} = state
-  const {items, isFetching} = list.toJS()
 
   return {
-    isFetching,
-    items
+    isFetching: list.get('isFetching'),
+    items: list.get('items'),
   }
 }
 
@@ -20,6 +19,7 @@ export default class HomePage extends Component {
 
   componentDidMount() {
     const {getListData} = this.props
+    
     getListData()
   }
 
@@ -28,7 +28,7 @@ export default class HomePage extends Component {
     if(!items) {
       return null
     }
-    return items.map((item, index) => <li key={index}>{item.title}</li>)
+    return items.map((item, index) => <li key={index}>{item.get('title')}</li>)
   }
 
   render() {
